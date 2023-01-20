@@ -2,6 +2,12 @@ img {
   vertical-align: top;
 }
 
+#aaa {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+}
+
 .wrap {
   display: flex;
   flex-direction: column;
