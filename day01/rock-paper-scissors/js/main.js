@@ -3,6 +3,7 @@ const playerItems = document.querySelectorAll("#player ul li");
 const resultList = document.querySelector("#result ul");
 const blocking = document.querySelector(".blocking");
 const cover = document.querySelector("#cover");
+const btnRestart = document.querySelector("#btnRestart");
 let num = 0; // 전역 변수 scope  let, const {}  var function() {}
 
 function appendWinItem() {
@@ -80,6 +81,23 @@ for (let i = 0; i < playerItems.length; i++) {
     }
   });
 }
+btnRestart.addEventListener("click", function () {
+  cover.classList.remove("on");
+  count = 0;
+  winCount = 0;
+  loseCount = 0;
+  drawCount = 0;
+  const items = resultList.querySelectorAll("li");
+  for (let i = 0; i < 3; i++) {
+    items[i].remove();
+  }
+  // items[0].remove();
+  // items[1].remove();
+  // items[2].remove();
+  //resultList.innerHTML = "";
+  restart();
+});
+
 let idx = setInterval(random, 20);
 function restart() {
   blocking.classList.remove("on");
