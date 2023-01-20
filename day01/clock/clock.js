@@ -1,4 +1,15 @@
 const time = document.querySelector(".time");
+// function hello(name, callback) {
+//   console.log("name===", name);
+//   callback();
+// }
+// const myCallBack = function () {
+//   console.log("나는 callback 함수입니다.");
+// };
+// hello("장성호", function () {
+//   console.log("나는 callback 함수입니다.");
+// });
+// hello("남진", myCallBack);
 
 setInterval(makeTime, 1000);
 function addZero(num) {
@@ -23,4 +34,3 @@ function makeTime() {
   // }
   time.textContent = `${hour} : ${min} : ${sec}`;
 }
-console.log("🚀 ~ file: clock.js:2 ~ now", now);
