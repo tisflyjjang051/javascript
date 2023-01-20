@@ -1,6 +1,7 @@
 const comItems = document.querySelectorAll("#com ul li");
 const playerItems = document.querySelectorAll("#player ul li");
 const resultList = document.querySelector("#result ul");
+const blocking = document.querySelector(".blocking");
 let num = 0; // 전역 변수 scope  let, const {}  var function() {}
 
 function appendWinItem() {
@@ -35,11 +36,16 @@ function random() {
   num = parseInt(Math.random() * comItems.length);
   comItems[num].style.display = "block";
 }
-
+let count = 0;
 for (let i = 0; i < playerItems.length; i++) {
   playerItems[i].addEventListener("click", function () {
+    blocking.classList.add("on");
+    count++;
     clearInterval(idx);
-    //console.log(i, "====", num);
+    let idx02 = setTimeout(restart, 1000);
+    if (count >= 3) {
+      clearTimeout(idx02);
+    }
     if (i === num) {
       //비겼을때
       appendItem("draw", "D");
@@ -52,4 +58,8 @@ for (let i = 0; i < playerItems.length; i++) {
     }
   });
 }
-const idx = setInterval(random, 20);
+let idx = setInterval(random, 20);
+function restart() {
+  blocking.classList.remove("on");
+  idx = setInterval(random, 20);
+}
