@@ -1,3 +1,5 @@
+const jsConfetti = new JSConfetti();
+
 const comItems = document.querySelectorAll("#com ul li");
 const playerItems = document.querySelectorAll("#player ul li");
 const resultList = document.querySelector("#result ul");
@@ -70,12 +72,21 @@ for (let i = 0; i < playerItems.length; i++) {
       const msg = cover.querySelector(".msg");
       if (winCount >= 2 || (drawCount === 2 && winCount === 1)) {
         msg.textContent = "YOU WIN!!!";
+        jsConfetti.addConfetti({
+          emojis: ["😋"],
+        });
       } else if (loseCount >= 2 || (drawCount === 2 && loseCount === 1)) {
         console.log("완전 짐");
         msg.textContent = "YOU LOSE!!!";
+        jsConfetti.addConfetti({
+          emojis: ["🥵"],
+        });
       } else {
         console.log("완전 비김");
         msg.textContent = "YOU DRAW!!!";
+        jsConfetti.addConfetti({
+          emojis: ["🙄"],
+        });
       }
       cover.classList.add("on");
     }
@@ -103,3 +114,4 @@ function restart() {
   blocking.classList.remove("on");
   idx = setInterval(random, 20);
 }
+let confetti = new Confetti("btnRestart");
