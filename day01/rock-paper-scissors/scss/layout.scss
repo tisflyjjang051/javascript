@@ -98,10 +98,18 @@ img {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  &.on {
+    display: flex;
+  }
   h2 {
     font-size: 32px;
     color: #fff;
     margin-bottom: 50px;
+  }
+  .msg {
+    font-size: 5vw;
+    margin: 50px 0;
+    color: #fff;
   }
   button {
     padding: 30px 60px;

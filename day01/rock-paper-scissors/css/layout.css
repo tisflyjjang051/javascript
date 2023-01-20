@@ -96,10 +96,18 @@ img {
   justify-content: center;
   align-items: center;
 }
+#cover.on {
+  display: flex;
+}
 #cover h2 {
   font-size: 32px;
   color: #fff;
   margin-bottom: 50px;
+}
+#cover .msg {
+  font-size: 5vw;
+  margin: 50px 0;
+  color: #fff;
 }
 #cover button {
   padding: 30px 60px;
