@@ -1,7 +1,5 @@
 //const candidateNum = [1,2,3,5,8,9,10,11,...,45]
 const animals = ["rabbit", "tiger", "lion"];
-console.log(animals.splice(0, 1));
-console.log(animals);
 const candidateNum = [];
 const lotto = [];
 for (let i = 1; i < 46; i++) {
