@@ -17,8 +17,27 @@ navigator.geolocation.getCurrentPosition(function (position) {
       currentTemp.textContent = result.main.temp - absTemp;
       tempMax.textContent = result.main.temp_max - absTemp;
       tempMin.textContent = result.main.temp_min - absTemp;
-      icon.innerHTML = `<img src="http://openweathermap.org/img/wn/${result.weather[0].icon}@2x.png">`;
+      icon.innerHTML = `<img src="./images/icons/${result.weather[0].icon}.png">`;
       //http://openweathermap.org/img/wn/10d@2x.png
     })
     .catch();
 });
+
+fetch("https://dapi.kakao.com/v2/translation/translate", {
+  headers: {
+    Authorization: "KakaoAK 6b2baf1cf6415f955c240557b86a01e2",
+  },
+  type: "POST",
+  contentType: "application/x-www-form-urlencoded",
+  data: {
+    src_lang: "kr",
+    target_lang: "en",
+    query: "부산",
+  },
+})
+  .then(function (response) {
+    return response.json();
+  })
+  .then(function (result) {
+    console.log(result);
+  });
