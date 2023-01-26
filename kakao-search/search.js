@@ -2,6 +2,15 @@ const thumbList = document.querySelector(".list");
 const btnSearch = document.querySelector(".btn-search");
 const searchTxt = document.querySelector(".search-txt");
 const recentSearchWord = document.querySelector(".recent-search-word");
+//let recentSearchWordArray = [];
+/// Nullish coalescing
+const recentSearchWordArray = JSON.parse(localStorage.getItem("recentSearchWord")) ?? [];
+console.log("🚀 ~ file: search.js:8 ~ recentSearchWordArray", recentSearchWordArray);
+if (recentSearchWordArray !== null) {
+  recentSearchWordArray.forEach(function (item, idx) {
+    recentSearchWord.innerHTML += `<li>${item}</li>`;
+  });
+}
 
 searchTxt.addEventListener("keyup", function (e) {
   const txt = searchTxt.value;
@@ -11,8 +20,14 @@ searchTxt.addEventListener("keyup", function (e) {
   // }
   //searchImg(txt);
   if (e.keyCode === 13) {
+    if (!recentSearchWordArray.includes(txt)) {
+      recentSearchWordArray.push(txt);
+      recentSearchWord.innerHTML += `<li>${txt}</li>`;
+
+      localStorage.setItem("recentSearchWord", JSON.stringify(recentSearchWordArray));
+    }
     searchImg(txt);
-    recentSearchWord.innerHTML += `<li>${txt}</li>`;
+    console.log(recentSearchWordArray);
   }
 });
 
