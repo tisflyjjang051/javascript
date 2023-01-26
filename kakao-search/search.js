@@ -1,14 +1,19 @@
 const thumbList = document.querySelector(".list");
 const btnSearch = document.querySelector(".btn-search");
 const searchTxt = document.querySelector(".search-txt");
+const recentSearchWord = document.querySelector(".recent-search-word");
 
 searchTxt.addEventListener("keyup", function (e) {
   const txt = searchTxt.value;
   console.log(e);
+  // if (e.keyCode === 13 && e.ctrlKey) {
+  //   searchImg(txt);
+  // }
+  //searchImg(txt);
   if (e.keyCode === 13) {
     searchImg(txt);
+    recentSearchWord.innerHTML += `<li>${txt}</li>`;
   }
-  //searchImg(txt);
 });
 
 function searchImg(searchTxt) {
