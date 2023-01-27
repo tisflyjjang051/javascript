@@ -39,9 +39,23 @@ header {
   display: flex;
   //flex-direction: column;
   flex-wrap: wrap;
+  gap: 20px;
   li {
+    display: flex;
+    flex-direction: column;
+    width: calc(25% - 20px);
+    padding: 10px;
+    background-color: #fff;
+    box-sizing: border-box;
+    color: #111;
     img {
-      width: 200px;
+      width: 100%;
+    }
+    .contents-box * {
+      margin: 5px 0;
+    }
+    .overview {
+      @include multiEllipsis(3, 1.5);
     }
   }
 }
@@ -81,5 +95,37 @@ header {
     border-radius: 100px;
     font-size: 18px;
     font-weight: 700;
+  }
+}
+
+.btn-more {
+  width: 120px;
+  padding: 20px 0;
+  background-color: #fff;
+  border: none;
+  outline: none;
+  border-radius: 100px;
+  margin: 100px auto;
+  display: block;
+}
+.movie-detail {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #fff;
+  color: #111;
+  padding: 50px;
+  display: none;
+  box-sizing: border-box;
+  overflow: auto;
+  &.on {
+    display: block;
+  }
+  .img-box {
+    img {
+      width: 200px;
+    }
   }
 }
