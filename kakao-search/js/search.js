@@ -2,28 +2,26 @@ const thumbList = document.querySelector(".list");
 const btnSearch = document.querySelector(".btn-search");
 const searchTxt = document.querySelector(".search-txt");
 const recentSearchWord = document.querySelector(".recent-search-word");
-//let recentSearchWordArray = [];
-/// Nullish coalescing
+
 const recentSearchWordArray = JSON.parse(localStorage.getItem("recentSearchWord")) ?? [];
-console.log("🚀 ~ file: search.js:8 ~ recentSearchWordArray", recentSearchWordArray);
 if (recentSearchWordArray !== null) {
   recentSearchWordArray.forEach(function (item, idx) {
     recentSearchWord.innerHTML += `<li>${item}</li>`;
   });
+  const recentSearchWordItem = document.querySelectorAll("li");
+  recentSearchWordItem.forEach(function (item, idx) {
+    item.addEventListener("click", function () {
+      //console.log(item);
+      const txt = item.textContent;
+      searchImg(txt);
+    });
+  });
 }
-
 searchTxt.addEventListener("keyup", function (e) {
   const txt = searchTxt.value;
-  console.log(e);
-  // if (e.keyCode === 13 && e.ctrlKey) {
-  //   searchImg(txt);
-  // }
-  //searchImg(txt);
   if (e.keyCode === 13) {
     if (!recentSearchWordArray.includes(txt)) {
       recentSearchWordArray.push(txt);
-      recentSearchWord.innerHTML += `<li>${txt}</li>`;
-
       localStorage.setItem("recentSearchWord", JSON.stringify(recentSearchWordArray));
     }
     searchImg(txt);
@@ -40,17 +38,14 @@ function searchImg(searchTxt) {
   });
   myFetch
     .then(function (response) {
-      //console.log("그녀가 내게로 왔어,,,");
-      //console.log(response.json());
       return response.json();
     })
     .then(function (result) {
-      //console.log(result.documents);
-      // 여기서 반복문 돌려서 화면에 뿌리기....
       result.documents.forEach(function (item, idx) {
-        //console.log(item.thumbnail_url);
         thumbList.innerHTML += `<li><a href="${item.image_url}" data-fancybox="gallery"><img src="${item.thumbnail_url}"></a></li>`;
       });
+      // ul에 li가 추가된 상태
+      gsap.from(".list li", { scale: 0, stagger: { each: 0.02, grid: "auto", from: "edge" } });
     })
     .catch(function () {
       console.log("카톡 프로필에 사진을 올리는게 아니었는데...");

@@ -42,7 +42,7 @@ header h1 strong {
   flex-wrap: wrap;
 }
 .list li img {
-  width: 80px;
+  width: 200px;
 }
 
 .search-box {
@@ -83,5 +83,4 @@ header h1 strong {
   border-radius: 100px;
   font-size: 18px;
   font-weight: 700;
-  cursor: pointer;
 }
