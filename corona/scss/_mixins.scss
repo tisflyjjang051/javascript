@@ -1,0 +1,43 @@
+@mixin longShadow($limit: 30, $color: rgba(0, 0, 0, 1)) {
+  //1px 1px
+  $shadow: "";
+  @for $i from 1 to $limit {
+    $shadow: $shadow + $i + "px " + $i + "px 0px " + $color + ",";
+  }
+  $shadow: $shadow + $limit + "px " + $limit + "px 0px " + $color;
+  $shadow: unquote($shadow);
+  text-shadow: $shadow;
+}
+
+@mixin center() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin icon($code, $margin: 10px) {
+  display: inline-block;
+  content: $code;
+  margin-left: $margin;
+  font-family: "Material Icons";
+}
+
+@mixin ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+// em단위는 부모글자의 높이
+@mixin multiEllipsis($line: 2, $lineHeight: 1.5) {
+  display: -webkit-box;
+  line-height: $lineHeight;
+  height: $lineHeight * $line * 1em;
+  overflow: hidden;
+  -webkit-line-clamp: $line;
+  -webkit-box-orient: vertical;
+  word-break: break-all;
+}
+@mixin icon($code) {
+  font-family: "Material Icons";
+  content: $code;
+}
