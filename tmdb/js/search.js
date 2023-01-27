@@ -50,20 +50,35 @@ function loadMovie(pageNum = 1) {
             .then(function (result) {
               console.log(result);
               movieDetail.classList.add("on");
+              document.body.classList.add("off");
+              gsap.fromTo(".movie-detail", { y: "100%" }, { y: 0, duration: 1, ease: "power4" });
+              let txtGenres = "";
+              result.genres.forEach(function (item, idx) {
+                if (idx === 0) {
+                  txtGenres += item.name;
+                } else {
+                  txtGenres += "/" + item.name;
+                }
+              });
               movieDetail.innerHTML = `
-              <div class="img-box"><img src="https://image.tmdb.org/t/p/original${result.backdrop_path}" alt="" /></div>
-              <div class="contents-box">
-                <h2 class="title">${result.title}</h2>
-                <p>${result.original_title}</p>
-                <p>genres</p>
-                <p><a href="${result.homepage}" target="_blank">${result.homepage}</a></p>
-                <p>${result.release_date}</p>
-                <p>${result.popularity}</p>
-                <p>${result.runtime}</p>
-                <p>${result.overview}</p>
-              </div>
-              <button>닫기</button>
+                <div class="img-box"><img src="https://image.tmdb.org/t/p/original${result.backdrop_path}" alt="" /></div>
+                <div class="contents-box">
+                  <h2 class="title">${result.title}</h2>
+                  <p>${result.original_title}</p>
+                  <p>${txtGenres}</p>
+                  <p><a href="${result.homepage}" target="_blank">${result.homepage}</a></p>
+                  <p>${result.release_date}</p>
+                  <p>${result.popularity}</p>
+                  <p>${result.runtime}</p>
+                  <p>${result.overview}</p>
+                </div>
+              <button class="btn-close">닫기</button>
               `;
+              const btnClose = document.querySelector(".btn-close");
+              btnClose.addEventListener("click", function () {
+                movieDetail.classList.remove("on");
+                document.body.classList.remove("off");
+              });
             })
             .catch(function () {
               console.log("디테일한 영화정보 못받았음");

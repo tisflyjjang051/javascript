@@ -14,6 +14,9 @@ body {
   font-size: 16px;
   background-color: #333;
   color: #fff;
+  &.off {
+    overflow: hidden;
+  }
 }
 li {
   list-style: none;
@@ -113,19 +116,19 @@ header {
   left: 0;
   top: 0;
   width: 100%;
-  min-height: 100vh;
+  max-height: 100vh;
   background-color: #fff;
   color: #111;
   padding: 50px;
   display: none;
   box-sizing: border-box;
-  overflow: auto;
+  overflow-y: auto;
   &.on {
     display: block;
   }
   .img-box {
     img {
-      width: 200px;
+      width: 100%;
     }
   }
 }
