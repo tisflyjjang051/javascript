@@ -119,7 +119,7 @@ header {
   max-height: 100vh;
   background-color: #fff;
   color: #111;
-  padding: 50px;
+  //padding: 50px;
   display: none;
   box-sizing: border-box;
   overflow-y: auto;
@@ -131,4 +131,43 @@ header {
       width: 100%;
     }
   }
+  .contents-box * {
+    margin: 10px 0;
+  }
+  .contents-box {
+    font-size: 18px;
+    font-weight: 500;
+    padding: 100px 50px;
+    h2 {
+      font-size: 32px;
+      font-weight: 700;
+    }
+    .overview {
+      line-height: 1.8;
+    }
+  }
+  .btn-close {
+    border: none;
+    outline: none;
+    background-color: #fff;
+    color: #111;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    padding: 10px;
+    border-radius: 5px;
+  }
+}
+
+.material-icons.md-18 {
+  font-size: 18px;
+}
+.material-icons.md-24 {
+  font-size: 24px;
+}
+.material-icons.md-36 {
+  font-size: 36px;
+}
+.material-icons.md-48 {
+  font-size: 48px;
 }

@@ -129,7 +129,6 @@ header h1 strong {
   max-height: 100vh;
   background-color: #fff;
   color: #111;
-  padding: 50px;
   display: none;
   box-sizing: border-box;
   overflow-y: auto;
@@ -139,4 +138,46 @@ header h1 strong {
 }
 .movie-detail .img-box img {
   width: 100%;
+}
+.movie-detail .contents-box * {
+  margin: 10px 0;
+}
+.movie-detail .contents-box {
+  font-size: 18px;
+  font-weight: 500;
+  padding: 100px 50px;
+}
+.movie-detail .contents-box h2 {
+  font-size: 32px;
+  font-weight: 700;
+}
+.movie-detail .contents-box .overview {
+  line-height: 1.8;
+}
+.movie-detail .btn-close {
+  border: none;
+  outline: none;
+  background-color: #fff;
+  color: #111;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.material-icons.md-18 {
+  font-size: 18px;
+}
+
+.material-icons.md-24 {
+  font-size: 24px;
+}
+
+.material-icons.md-36 {
+  font-size: 36px;
+}
+
+.material-icons.md-48 {
+  font-size: 48px;
 }
