@@ -58,3 +58,19 @@ header h1 strong {
   pointer-events: none;
   transition: all 0.25s ease;
 }
+
+.date {
+  position: fixed;
+  right: 100px;
+  top: 100px;
+  z-index: 99;
+}
+.date #picked-date {
+  width: 240px;
+  height: 50px;
+  border-radius: 5px;
+  padding: 0 20px;
+  font-size: 18px;
+  outline: none;
+  border: none;
+}
