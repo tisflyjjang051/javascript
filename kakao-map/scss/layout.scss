@@ -63,3 +63,20 @@ header {
   background-color: #000;
   margin: 100px auto;
 }
+
+.customoverlay {
+  background-color: rgb(3, 90, 144);
+  padding: 10px 15px;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
+  //border: 1px solid #ccc;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 80px;
+
+  a {
+    text-decoration: none;
+    color: #fff;
+  }
+}
