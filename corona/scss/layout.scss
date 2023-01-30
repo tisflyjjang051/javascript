@@ -40,3 +40,19 @@ header {
   width: 1200px;
   margin: 100px auto;
 }
+
+.loading {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &.off {
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.25s ease;
+  }
+}
