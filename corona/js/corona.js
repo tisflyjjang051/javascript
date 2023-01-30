@@ -54,29 +54,33 @@ function loadCoronaData(pickedDate) {
         cities.push(item.gubun);
         datas.push(item.incDec);
       });
-      Chart.defaults.font.size = 20;
+      //Chart.defaults.font.size = 20;
       const ctx = document.querySelector("#myChart");
       chart = new Chart(ctx, {
+        plugins: [ChartDataLabels],
         type: "bar", // line,도넛,
         data: {
           labels: cities,
           datasets: [
             {
-              label: "# of Votes",
+              label: "시도별 코로나 발생 현황",
               data: datas,
               borderWidth: 1,
-              //backgroundColor: "rgba(255, 0, 0, 1)",
-              //prettier-ignore
-              /*
-              backgroundColor: [
-                "#ff0000","#00ff00","#0000ff","#ff0000","#00ff00","#0000ff","#ff0000","#00ff00","#0000ff",
-                "#ff0000","#00ff00","#0000ff","#ff0000","#00ff00","#0000ff","#ff0000","#00ff00","#0000ff","#ff0000",
-              ],
-              */
             },
           ],
         },
         options: {
+          plugins: {
+            datalabels: {
+              color: "#ffffff",
+              anchor: "end", // 어디에 표시할건지
+              align: "end", // anchor 기준 offset
+              offset: 4,
+              font: {
+                size: 18,
+              },
+            },
+          },
           scales: {
             y: {
               beginAtZero: true,
