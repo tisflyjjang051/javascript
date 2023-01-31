@@ -66,15 +66,20 @@ header h1 strong {
   margin: 100px auto;
 }
 #map .contents-box {
-  padding: 15px;
+  padding: 10px;
   font-size: 14px;
   background-color: #fff;
   border: 1px solid #ddd;
   border-radius: 10px;
-  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
   position: absolute;
   left: 50%;
   transform: translate(-50%, -140%);
+  transition: all 0.5s ease;
+  min-height: 80px;
+}
+#map .contents-box.off {
+  opacity: 0;
 }
 #map .contents-box:after {
   content: "";
@@ -91,15 +96,31 @@ header h1 strong {
 }
 #map .contents-box .close {
   position: absolute;
-  right: 5px;
-  top: 5px;
+  right: 0;
+  top: -28px;
   border: none;
   background: none;
+  background-color: #111;
+  color: #fff;
+  border-radius: 3px;
   cursor: pointer;
+}
+#map .contents-box .close .material-icons {
+  vertical-align: top;
 }
 #map .contents-box .title {
   font-size: 16px;
   font-weight: 700;
+}
+#map .contents-box .reservation a {
+  background-color: rgb(6, 156, 220);
+  color: #fff;
+  text-decoration: none;
+  color: #fff;
+  display: block;
+  padding: 5px;
+  border-radius: 3px;
+  text-align: center;
 }
 
 .customoverlay {
