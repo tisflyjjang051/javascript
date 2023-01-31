@@ -17,7 +17,7 @@ function searchPlace(searchTxt) {
   //const infoWindow = new kakao.maps.InfoWindow({ zIndex: 99, removable: true });
   const customOverlay = new kakao.maps.CustomOverlay({
     map: map,
-    content: `<div class="contents-box"><h1>나는 커스텀 오버레이</h1></div>`,
+    //content: `<div class="contents-box"><h1>나는 커스텀 오버레이</h1></div>`,
   });
   const place = new kakao.maps.services.Places();
   place.keywordSearch(searchTxt, function (result, status) {
@@ -47,6 +47,7 @@ function searchPlace(searchTxt) {
               <div class="phone">${item.phone}</div>
               <div class="address">${item.road_address_name}</div>
               <div class="info"><a href="${item.place_url}" target="_blank">매장정보</a></div>
+              <button class="close" onclick="close()"><span class="material-icons">close</span></button>
             </div>`
           );
           customOverlay.setMap(map);
@@ -59,4 +60,8 @@ function searchPlace(searchTxt) {
       alert("검색 결과가 존재하지 않습니다.");
     }
   });
+}
+function close(item) {
+  console.log("click");
+  item.setMap(null);
 }

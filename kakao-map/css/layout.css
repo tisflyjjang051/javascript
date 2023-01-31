@@ -65,6 +65,42 @@ header h1 strong {
   background-color: #000;
   margin: 100px auto;
 }
+#map .contents-box {
+  padding: 15px;
+  font-size: 14px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -140%);
+}
+#map .contents-box:after {
+  content: "";
+  display: block;
+  border: 10px solid transparent;
+  border-top-color: #fff;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -20px;
+}
+#map .contents-box div {
+  margin: 5px 0;
+}
+#map .contents-box .close {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+#map .contents-box .title {
+  font-size: 16px;
+  font-weight: 700;
+}
 
 .customoverlay {
   background-color: rgb(3, 90, 144);
