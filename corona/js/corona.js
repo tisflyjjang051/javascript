@@ -71,6 +71,10 @@ function loadCoronaData(pickedDate) {
         },
         options: {
           plugins: {
+            legend: {
+              // 범례 사용 안 함
+              display: false,
+            },
             datalabels: {
               color: "#ffffff",
               anchor: "end", // 어디에 표시할건지
@@ -82,8 +86,21 @@ function loadCoronaData(pickedDate) {
             },
           },
           scales: {
+            x: {
+              beginAtZero: true,
+              grid: {
+                display: true,
+                color: "rgba(255,255,255,0.1)",
+              },
+              grace: "1%",
+            },
             y: {
               beginAtZero: true,
+              grid: {
+                display: true,
+                color: "rgba(255,255,255,0.1)",
+              },
+              grace: "1%",
             },
           },
         },

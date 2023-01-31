@@ -1,3 +1,11 @@
+navigator.geolocation.getCurrentPosition(function (position) {
+  //console.log(position.coords);
+  const { coords } = position;
+  console.log(coords);
+  const { latitude, longitude } = coords;
+  console.log(latitude, "===", longitude);
+});
+
 const container = document.querySelector("#map");
 mapOption = {
   center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
