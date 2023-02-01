@@ -26,6 +26,13 @@ const customOverlay = new kakao.maps.CustomOverlay({
   zIndex: 99,
 });
 //customOverlay.setMap(map);
+// 이벤트 위임...
+document.body.addEventListener("click", function (e) {
+  //console.log(e.target);
+  if (e.target.closest("button")) {
+    customOverlay.setMap(null);
+  }
+});
 function loadMap(address) {
   fetch(`https://api.odcloud.kr/api/EvInfoServiceV2/v1/getEvSearchList?page=1&perPage=5000&cond[addr::LIKE]=${address}&serviceKey=Wnus4QpirWGI56CfvzMWDIDHMRL%2FmEF%2FqTl9gwVNbRggLYTGPFIdwBy0L51B%2B27d5QRbLanNmIAxPwNvl7dKPA%3D%3D
 `)
