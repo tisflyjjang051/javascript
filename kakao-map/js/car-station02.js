@@ -58,6 +58,7 @@ function loadMap(address) {
             <p class="type">충전타입:${item.cpNm}cpNm</p>
             <button class="close"><span class="material-icons"> close </span></button>
           </div>`);
+          map.panTo(marker.getPosition());
         });
         markers.push(marker);
       });
