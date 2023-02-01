@@ -121,3 +121,30 @@ button {
     }
   }
 }
+.result {
+  .inner {
+    display: flex;
+    flex-direction: column;
+    padding: 50px;
+    box-sizing: border-box;
+    justify-content: space-around;
+    align-items: center;
+    color: #fff;
+    background-color: #000;
+    h2 {
+      font-size: 5vw;
+      font-weight: 700;
+    }
+    .cat {
+      border-radius: 100%;
+      width: 70%;
+      aspect-ratio: 1/1;
+    }
+    p {
+      font-size: 16px;
+    }
+    .desc {
+      line-height: 1.5;
+    }
+  }
+}
