@@ -42,10 +42,17 @@ button {
 }
 
 .contents-box {
-  height: 100vh;
+  height: calc(100vh - 60px);
+  display: none;
+}
+.contents-box .inner {
+  height: 100%;
+}
+.contents-box.on {
+  display: block;
 }
 
-.start {
+.start .inner {
   background: url("../images/main-cat.png") no-repeat 50% #000;
   background-size: 80%;
   display: flex;
@@ -53,17 +60,60 @@ button {
   justify-content: space-around;
   align-items: center;
 }
-.start h2 {
+.start .inner h2 {
   font-size: 8vw;
   color: #fff;
   font-weight: 700;
   text-align: center;
   padding: 0 20px;
 }
-.start button {
+.start .inner button {
   background-color: #fff;
   color: #111;
   font-size: 5vw;
   padding: 15px 30px;
+  font-weight: 700;
+}
+
+.question .inner {
+  background-color: #000;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 20px;
+  box-sizing: border-box;
+}
+.question .inner .progress {
+  border-radius: 100px;
+  height: 15px;
+  background-color: #fff;
+  overflow: hidden;
+  position: relative;
+}
+.question .inner .progress .bar {
+  background-color: #f00;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 0%;
+  border-radius: 0 100px 100px 0;
+}
+.question .inner .question-box {
+  color: #fff;
+  text-align: center;
+  font-size: 5vw;
+  font-weight: 700;
+}
+.question .inner .btns {
+  display: flex;
+  gap: 20px;
+}
+.question .inner .btns button {
+  width: 50%;
+  height: 150px;
+  background-color: #fff;
+  color: #111;
+  font-size: 4vw;
   font-weight: 700;
 }
