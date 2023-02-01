@@ -65,7 +65,7 @@ const QuestionData = [
   {
     id: 10,
     title: "고양이 사료를 급여하는 방법은?",
-    answera: "'우리 고양이 몸무게는 5키로니까 하루세번 몇시에 이만큼 씩 주고, 간식은 이때 챙겨줘야겠다. 영양제도 미리미리 챙겨줘야지!' 계획을 세운다. ",
+    answera: "'우리 고양이 몸무게는 5키로니까 하루세번 몇시에 이만큼 씩 주고, 간식은 이때 챙겨줘야겠다!' 계획을 세운다. ",
     answerb: "사료주면 알아서 먹겠지! 일단 자율급식으로 한꺼번에 줘본다.",
     type: "JP",
   },
@@ -88,6 +88,7 @@ const QuestionData = [
 const btnStart = document.querySelector(".start .btn");
 const start = document.querySelector(".start");
 const question = document.querySelector(".question");
+const bar = document.querySelector(".question .progress .bar");
 const questionBox = document.querySelector(".question .question-box");
 const type01 = document.querySelector(".question .type01");
 const type02 = document.querySelector(".question .type02");
@@ -102,15 +103,34 @@ questionBox.textContent = QuestionData[0].title;
 type01.textContent = QuestionData[0].answera;
 type02.textContent = QuestionData[0].answerb;
 
-type01.addEventListener("click", function () {
-  count++;
+let score = [
+  { id: "EI", num: 0 },
+  { id: "SN", num: 0 },
+  { id: "TF", num: 0 },
+  { id: "JP", num: 0 },
+];
+
+function clickFunc(point) {
   questionBox.textContent = QuestionData[count].title;
   type01.textContent = QuestionData[count].answera;
   type02.textContent = QuestionData[count].answerb;
+  bar.style.width = (count / 12) * 100 + "%";
+
+  const newScore = score.map(function (item, idx) {
+    if (item.id === QuestionData[count].type) {
+      return { id: item.id, num: item.num + point };
+    } else {
+      return item;
+    }
+  });
+  score = newScore;
+  console.log(score);
+  count++;
+}
+
+type01.addEventListener("click", function () {
+  clickFunc(1);
 });
 type02.addEventListener("click", function () {
-  count++;
-  questionBox.textContent = QuestionData[count].title;
-  type01.textContent = QuestionData[count].answera;
-  type02.textContent = QuestionData[count].answerb;
+  clickFunc(0);
 });

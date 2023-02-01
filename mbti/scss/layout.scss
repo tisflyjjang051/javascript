@@ -94,6 +94,7 @@ button {
         height: 100%;
         width: 0%;
         border-radius: 0 100px 100px 0;
+        transition: all 0.25s ease;
       }
     }
     .question-box {
@@ -101,17 +102,21 @@ button {
       text-align: center;
       font-size: 5vw;
       font-weight: 700;
+      height: 80px;
     }
     .btns {
       display: flex;
       gap: 20px;
       button {
         width: 50%;
-        height: 150px;
+        height: 170px;
         background-color: #fff;
         color: #111;
         font-size: 4vw;
         font-weight: 700;
+        padding: 20px;
+        box-sizing: border-box;
+        word-break: keep-all;
       }
     }
   }
