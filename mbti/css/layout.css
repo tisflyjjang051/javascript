@@ -148,3 +148,8 @@ button {
 .result .inner .desc {
   line-height: 1.5;
 }
+.result .inner .btn-kakao {
+  padding: 15px 30px;
+  background-color: #fff;
+  border-radius: 5px;
+}

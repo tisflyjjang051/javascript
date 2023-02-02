@@ -222,10 +222,39 @@ const type02 = document.querySelector(".question .type02");
 const catType = document.querySelector(".result .cat-type");
 const cat = document.querySelector(".result .cat");
 const desc = document.querySelector(".result .desc");
+const btnKakao = document.querySelector(".result .btn-kakao");
+
+Kakao.init("5d738bd87720c302b72dc8d2b8fc03d4");
+
+const url = "https://polite-syrniki-e15a44.netlify.app";
 
 btnStart.addEventListener("click", function () {
   start.classList.remove("on");
   question.classList.add("on");
+});
+
+btnKakao.addEventListener("click", function () {
+  Kakao.Share.sendDefault({
+    objectType: "feed",
+    content: {
+      title: "나만없어 고양이~~~",
+      description: "당신을 집사로 선택한 고양이는 먼치킨",
+      imageUrl: `${url}/images/cat/Munchkin.png`,
+      link: {
+        mobileWebUrl: url,
+        webUrl: url,
+      },
+    },
+    buttons: [
+      {
+        title: "나도 고양이 집사가 되고 싶다면 클릭!!",
+        link: {
+          mobileWebUrl: url,
+          webUrl: url,
+        },
+      },
+    ],
+  });
 });
 
 let count = 1;
