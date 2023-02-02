@@ -33,28 +33,33 @@ console.log(b, "===", a);
 //   [candidate[Second], candidate[First]] = [candidate[First], candidate[Second]];
 // }
 
-const lotto = _.shuffle(candidate).filter(function (item, idx) {
-  if (idx < 6) {
-    return item;
-  }
-});
-const myLotto = _.sortBy(lotto);
-console.log("🚀 ~ file: lotto.js:42 ~ myLotto", myLotto);
 const paper = document.querySelector(".paper");
-// let html = "<ul>";
-// myLotto.forEach(function (item, idx) {
-//   html += `<li>${item}</li>`;
-// });
-// html += "</ul>";
 const colors = ["yellow", "blue", "red", "gray", "green"];
-const html = myLotto.reduce(function (acc, item, idx) {
-  const selectColor = Math.ceil(item / 10) - 1;
-  if (idx < myLotto.length - 1) {
-    return (acc += `<li class="${colors[selectColor]}">${item}</li>`);
-  } else {
-    return (acc += `<li class="${colors[selectColor]}">${item}</li></ul>`);
+function makeLotto(num) {
+  paper.innerHTML = "";
+  for (let i = 0; i < num; i++) {
+    const lotto = _.shuffle(candidate).filter(function (item, idx) {
+      if (idx < 6) {
+        return item;
+      }
+    });
+    const myLotto = _.sortBy(lotto);
+    const html = myLotto.reduce(function (acc, item, idx) {
+      const selectColor = Math.ceil(item / 10) - 1;
+      if (idx < myLotto.length - 1) {
+        return (acc += `<li class="${colors[selectColor]}">${item}</li>`);
+      } else {
+        return (acc += `<li class="${colors[selectColor]}">${item}</li></ul>`);
+      }
+    }, "<ul>");
+    paper.innerHTML += html;
   }
-}, "<ul>");
+}
 
-console.log("🚀 ~ file: lotto.js:56 ~ html ~ html", html);
-paper.innerHTML = html;
+const radios = document.querySelectorAll(".btns input");
+radios.forEach(function (item, idx) {
+  item.addEventListener("change", function () {
+    //console.log(idx + 1);
+    makeLotto(idx + 1);
+  });
+});

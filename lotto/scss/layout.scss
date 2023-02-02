@@ -110,18 +110,23 @@ header {
       }
       &.yellow {
         background-color: #f18c04;
+        @include longShadow(20, darken(#f18c04, 10));
       }
       &.blue {
         background-color: #1966d8;
+        @include longShadow(20, darken(#1966d8, 10));
       }
       &.red {
         background-color: #c1361e;
+        @include longShadow(20, darken(#c1361e, 10));
       }
       &.gray {
         background-color: #969696;
+        @include longShadow(20, darken(#969696, 10));
       }
       &.green {
         background-color: #19ad13;
+        @include longShadow(20, darken(#19ad13, 10));
       }
     }
   }
