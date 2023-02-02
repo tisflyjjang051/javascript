@@ -67,3 +67,31 @@ header {
     }
   }
 }
+.paper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  padding: 20px;
+  width: 80%;
+  margin: auto;
+  box-sizing: border-box;
+  ul {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+    li {
+      width: 36px;
+      height: 36px;
+      background-color: #f00;
+      color: #fff;
+      border-radius: 100%;
+      justify-content: center;
+      align-items: center;
+      display: flex;
+      line-height: 1;
+    }
+  }
+}
