@@ -46,11 +46,13 @@ const paper = document.querySelector(".paper");
 //   html += `<li>${item}</li>`;
 // });
 // html += "</ul>";
+const colors = ["yellow", "blue", "red", "gray", "green"];
 const html = myLotto.reduce(function (acc, item, idx) {
+  const selectColor = Math.ceil(item / 10) - 1;
   if (idx < myLotto.length - 1) {
-    return (acc += `<li>${item}</li>`);
+    return (acc += `<li class="${colors[selectColor]}">${item}</li>`);
   } else {
-    return (acc += `<li>${item}</li></ul>`);
+    return (acc += `<li class="${colors[selectColor]}">${item}</li></ul>`);
   }
 }, "<ul>");
 

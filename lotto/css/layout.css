@@ -75,6 +75,7 @@ header h1 strong {
   width: 80%;
   margin: auto;
   box-sizing: border-box;
+  margin-top: 50px;
 }
 .paper ul {
   display: flex;
@@ -92,4 +93,34 @@ header h1 strong {
   align-items: center;
   display: flex;
   line-height: 1;
+  font-weight: 900;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+}
+.paper ul li:before {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 80px;
+  border-radius: 100%;
+  background-color: rgba(255, 255, 255, 0.25);
+  position: absolute;
+  left: -50px;
+  top: -50px;
+}
+.paper ul li.yellow {
+  background-color: #f18c04;
+}
+.paper ul li.blue {
+  background-color: #1966d8;
+}
+.paper ul li.red {
+  background-color: #c1361e;
+}
+.paper ul li.gray {
+  background-color: #969696;
+}
+.paper ul li.green {
+  background-color: #19ad13;
 }
