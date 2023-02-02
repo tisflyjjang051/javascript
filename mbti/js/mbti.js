@@ -238,8 +238,8 @@ btnKakao.addEventListener("click", function () {
     objectType: "feed",
     content: {
       title: "나만없어 고양이~~~",
-      description: "당신을 집사로 선택한 고양이는 먼치킨",
-      imageUrl: `${url}/images/cat/Munchkin.png`,
+      description: `${selectedData.best}인 당신을 집사로 선택한 고양이는 ${selectedData.name}`,
+      imageUrl: `${url}/images/cat/${selectedData.image}`,
       link: {
         mobileWebUrl: url,
         webUrl: url,
@@ -269,6 +269,7 @@ let score = [
   { id: "JP", num: 0 },
 ];
 
+let selectedData = null;
 function clickFunc(point) {
   if (count < 12) {
     questionBox.textContent = QuestionData[count].title;
@@ -295,7 +296,7 @@ function clickFunc(point) {
       }
     }, "");
     console.log(mbti);
-    const selectedData = ResultData.find(function (item) {
+    selectedData = ResultData.find(function (item) {
       if (item.best === mbti) {
         return item;
       }

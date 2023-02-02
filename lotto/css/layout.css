@@ -1,0 +1,66 @@
+/* a, span, em, input */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  vertical-align: top;
+}
+
+body {
+  font-family: "Lato", "Pretendard", sans-serif;
+  font-size: 16px;
+  background-color: #333;
+}
+
+li {
+  list-style: none;
+}
+
+header {
+  height: 60px;
+  background-color: #fff;
+  color: #111;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+header h1 {
+  font-size: 18px;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+header h1 strong {
+  font-weight: 900;
+}
+
+.btns h2 {
+  color: #fff;
+  text-align: center;
+  font-size: 18px;
+  margin: 30px 0;
+}
+.btns ul {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+.btns ul li input {
+  display: none;
+}
+.btns ul li input:checked + span {
+  background-color: #f00;
+}
+.btns ul li span {
+  display: flex;
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  background-color: #666;
+  color: #fff;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  line-height: 1;
+}

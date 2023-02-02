@@ -33,12 +33,26 @@ console.log(b, "===", a);
 //   [candidate[Second], candidate[First]] = [candidate[First], candidate[Second]];
 // }
 
-const myLotto = _.shuffle(candidate).filter(function (item, idx) {
+const lotto = _.shuffle(candidate).filter(function (item, idx) {
   if (idx < 6) {
     return item;
   }
 });
-console.log("🚀 ~ file: lotto.js:28 ~ myLotto ~ myLotto", _.sortBy(myLotto));
-// for (let i = 0; i < 6; i++) {
-//   console.log(candidate[i]);
-// }
+const myLotto = _.sortBy(lotto);
+console.log("🚀 ~ file: lotto.js:42 ~ myLotto", myLotto);
+const paper = document.querySelector(".paper");
+// let html = "<ul>";
+// myLotto.forEach(function (item, idx) {
+//   html += `<li>${item}</li>`;
+// });
+// html += "</ul>";
+const html = myLotto.reduce(function (acc, item, idx) {
+  if (idx < myLotto.length - 1) {
+    return (acc += `<li>${item}</li>`);
+  } else {
+    return (acc += `<li>${item}</li></ul>`);
+  }
+}, "<ul>");
+
+console.log("🚀 ~ file: lotto.js:56 ~ html ~ html", html);
+paper.innerHTML = html;
